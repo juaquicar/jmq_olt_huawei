@@ -275,9 +275,7 @@ class APIMA56XXT:
 
 
 if __name__ == '__main__':
-    api = APIMA56XXT(
-        host='192.168.88.25', user='root', password='admin', prompt='MA5603T', debug=True
-    )
+    api = APIMA56XXT(host='192.168.88.25', user='root', password='admin', prompt='MA5603T', debug=True)
     try:
         api.connect()
         full = api.scan_all()

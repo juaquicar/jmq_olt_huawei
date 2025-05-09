@@ -25,10 +25,10 @@ pip install git+https://github.com/juaquicar/jmq_olt_huawei.git
 ```
 
 
-O si lo tienes clonado localmente:
+## Instalar proyecto en modo editable
 
 ```bash
-pip install .
+pip3 install -e .
 ```
 
 > Requiere Python >= 3.6.
@@ -72,6 +72,12 @@ jmq_olt_huawei/
 └── README.md           # Este archivo
 ```
 
+## Tests
+
+```bash
+pytest -s tests/test_ma56xxt.py
+```
+
 ## 🧩 Funcionalidades destacadas
 
 * Prompt dinámico configurable
@@ -79,14 +85,22 @@ jmq_olt_huawei/
 * Soporte para múltiples niveles de lectura (slots → puertos → ONTs)
 * Debug opcional para inspeccionar línea a línea
 
+
+## Contribuyendo
+
+1. Haz un fork del repositorio.
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`).
+3. Realiza tus cambios y añade tests, modifica README.md si estimas oportuno.
+4. Abre un Pull Request al main describiendo tu propuesta.
+
+
 ## ⚖️ Licencia
 
 MIT © [Juanma Quijada](mailto:quijada.jm@gmail.com)
 
-## 🌐 Enlace al proyecto
+## Enlaces
 
-[Repositorio en GitHub](https://github.com/juaquicar/jmq_olt_huawei)
-
-
+- Homepage: https://github.com/juaquicar/jmq_olt_huawei
+- PyPI: https://pypi.org/project/jmq-olt-huawei/
 
 

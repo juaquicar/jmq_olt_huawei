@@ -87,9 +87,6 @@ MIT © [Juanma Quijada](mailto:quijada.jm@gmail.com)
 
 [Repositorio en GitHub](https://github.com/juaquicar/jmq_olt_huawei)
 
-```
 
----
 
-¿Te gustaría que también te genere la documentación tipo docstring para cada método en formato Sphinx o Markdown?
-```
+

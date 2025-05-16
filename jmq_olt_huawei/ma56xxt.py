@@ -60,7 +60,7 @@ class APIMA56XXT:
                 continue
             if "Reenter times have reached the upper limit" in line:
                 self._log("Usuario bloqueado: demasiados intentos de reingreso")
-                self.disconnect()
+                self.close()
                 raise UserBusyError("Usuario ocupado: demasiados intentos de login")
             lines.append(line)
             if self.debug:
@@ -93,6 +93,11 @@ class APIMA56XXT:
         self._send('config')
         self._read_until_prompt()
         print("Conectado en modo config")
+
+    def close(self):
+        self.tn.close()
+        self.tn = None
+        self._log("Desconectado")
 
     def disconnect(self):
         """Sale de config y cierra la conexión Telnet con confirmación."""
@@ -283,4 +288,5 @@ if __name__ == '__main__':
     except UserBusyError as e:
         print(f"ERROR: {e}")
     finally:
-        api.disconnect()
+        # api.disconnect()
+        api.close()

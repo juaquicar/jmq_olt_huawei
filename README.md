@@ -54,7 +54,7 @@ try:
 except UserBusyError as e:
     print(f"ERROR: {e}")
 finally:
-    api.disconnect()
+    api.close()
 ```
 
 

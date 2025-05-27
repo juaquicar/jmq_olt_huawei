@@ -154,9 +154,13 @@ class APIMA56XXT:
         return ports
 
     def get_onts(self, slot: str, port_id: int) -> list[dict]:
+        self._send(f'interface gpon 0/{slot}')
+        self._read_until_prompt()
         """Obtiene lista de ONTs de un puerto GPON."""
         self._send(f'display ont info {port_id} all')
         raw = self._read_until_prompt()
+        self._send('quit')
+        self._read_until_prompt()
         return self._parse_onts(raw, slot, port_id)
 
     def scan_all(self) -> list[dict]:
@@ -167,6 +171,7 @@ class APIMA56XXT:
             if tipo == 'GPBD':
                 for port in self.get_ports(slot):
                     if port.get('optical_state') == 'Online':
+
                         port['onts'] = self.get_onts(slot, port['id'])
                     entry['ports'].append(port)
             result.append(entry)
@@ -288,5 +293,5 @@ if __name__ == '__main__':
     except UserBusyError as e:
         print(f"ERROR: {e}")
     finally:
-        # api.disconnect()
+#        api.disconnect()
         api.close()
